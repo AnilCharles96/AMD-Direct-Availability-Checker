@@ -1,0 +1,1 @@
+# AMD-Direct-Availability-Checker
