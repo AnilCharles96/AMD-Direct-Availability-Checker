@@ -72,7 +72,7 @@ eg 2:
 keys = ["6900 XT", "6800 XT", "5600X"] need = ["6900 XT", "6800 XT"]
 search for 6900xt, 6800xt and 5600x. I need only 6900xt and 6800xt
 """
-def scalping(response, keys, need):
+def checker(response, keys, need):
     soup = BeautifulSoup(response)
     for body in soup.find_all("div", {"class":"direct-buy"}):   
         for key in keys:
@@ -116,7 +116,7 @@ need = ["6900 XT", "6800 XT"]
 if __name__ == '__main__':
     while(True):
         res = requests.get("https://www.amd.com/de/direct-buy/de",headers=headers,timeout=10).content.decode('utf-8')
-        scalping(res, keys, need)
+        checker(res, keys, need)
         time.sleep(1)
         # sometimes command line gets stuck clearing will solve such issue
         os.system("cls")
