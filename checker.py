@@ -115,7 +115,10 @@ need = ["6900 XT", "6800 XT"]
 
 if __name__ == '__main__':
     while(True):
-        res = requests.get("https://www.amd.com/de/direct-buy/de",headers=headers,timeout=10).content.decode('utf-8')
+        try:
+            res = requests.get("https://www.amd.com/de/direct-buy/de",headers=headers,timeout=10).content.decode('utf-8')
+        except:
+            pass
         checker(res, keys, need)
         time.sleep(1)
         # sometimes command line gets stuck clearing will solve such issue
